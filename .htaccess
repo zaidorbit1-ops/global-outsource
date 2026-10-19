@@ -1,0 +1,21 @@
+DirectoryIndex index.php
+RewriteEngine On
+
+# Redirect direct PHP URLs to their clean equivalents.
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php(?:[?\s]) [NC]
+RewriteRule ^(.+?)\.php$ /%1 [R=301,L,NE]
+
+# Keep the homepage at the application root instead of /index.
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index(?:[?\s]) [NC]
+RewriteRule ^(.*/)?index/?$ /%1 [R=301,L,NE]
+
+# Serve existing PHP pages when their extensionless URL is requested.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]
+
+# Send unknown URLs through the branded 404 page while preserving HTTP 404.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ 404.php [L]

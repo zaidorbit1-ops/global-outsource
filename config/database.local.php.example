@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+
+return [
+    'db_host' => 'srv864.hstgr.io',
+    'db_name' => 'your_hostinger_database_name',
+    'db_user' => 'your_hostinger_database_username',
+    'db_password' => 'your_hostinger_database_password',
+    'db_port' => '3306',
+    'db_charset' => 'utf8mb4',
+];
