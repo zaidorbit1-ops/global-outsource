@@ -133,30 +133,7 @@ require __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-    <section class="finance-process section-shell" aria-labelledby="finance-process-title">
-        <div class="accounting-section-heading" data-reveal="up">
-            <p class="eyebrow"><span class="eyebrow-line"></span>Simple, structured, dependable</p>
-            <h2 id="finance-process-title">Our Process</h2>
-        </div>
-        <ol class="finance-process-list">
-            <li data-reveal="up">
-                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span>
-                <span class="process-step">01</span><h3>Understand</h3><p>We learn about your business needs and current processes.</p>
-            </li>
-            <li data-reveal="up">
-                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7m-7 4h7"/></svg></span>
-                <span class="process-step">02</span><h3>Plan</h3><p>We design a tailored solution with the right team and technology.</p>
-            </li>
-            <li data-reveal="up">
-                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v3m0 14v3M4.9 4.9 7 7m10 10 2.1 2.1M2 12h3m14 0h3M4.9 19.1 7 17m10-10 2.1-2.1"/><circle cx="12" cy="12" r="6"/></svg></span>
-                <span class="process-step">03</span><h3>Implement</h3><p>Our team sets up the processes and starts delivering.</p>
-            </li>
-            <li data-reveal="up">
-                <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13H2v5h4v-5zm16 0h2v5h-4v-5zM6 18a6 6 0 0 0 6 4h2"/></svg></span>
-                <span class="process-step">04</span><h3>Support</h3><p>We provide ongoing support and continuous improvement.</p>
-            </li>
-        </ol>
-    </section>
+    <?php require __DIR__ . '/includes/process-section.php'; ?>
 </main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

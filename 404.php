@@ -8,7 +8,6 @@ $documentBaseHref = rtrim($scriptDirectory, '/') . '/';
 $currentPage = 'not-found';
 $pageTitle = 'Page Not Found | Global Outsource';
 $pageDescription = 'The page you are looking for could not be found. Explore Global Outsource services or contact our team.';
-$hideFooterCta = true;
 
 require __DIR__ . '/includes/header.php';
 ?>

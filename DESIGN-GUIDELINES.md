@@ -10,11 +10,15 @@ Use the homepage's section-to-section spacing consistently on every page:
 | Tablet (601px–900px) | 36px |
 | Mobile (up to 600px) | 28px |
 
-The `--section-gap` token in `assets/css/style.css` is the source of truth for these values. Apply it between each adjacent top-level section (and section-level navigation) inside the page's `<main>`. Do not substitute a smaller page-specific value or rely on each section's internal padding to create the inter-section gap.
+The `--section-gap` token in `assets/css/style.css` is the source of truth for these values. `main#main-content` applies it between adjacent top-level sections and section-level navigation on every page. Do not add page-specific child margins, substitute a different gap, or rely on each section's internal padding to create the inter-section gap.
 
-The homepage uses `main#main-content` as the spacing reference. Pages with their own main layout, including the Accounting & Finance page, must preserve the same responsive values. For `.service-page`, adjacent top-level sections use `margin-top: var(--section-gap)` so the gap remains explicit and consistent.
+The homepage uses `main#main-content` as the spacing reference. Pages with their own main layout, including the Accounting & Finance page, must use the same responsive gap. Avoid combining child `margin-top` values with the main container gap, as this doubles section spacing.
 
 Card spacing, heading-to-content spacing, and section padding are separate internal layout values; keep those separate from the section-to-section gap.
+
+## Iconography
+
+Use the locally bundled Lucide 0.468.0 icons for decorative UI icons. Keep the existing icon containers and their sizing/color styles so the icons remain consistent with the layout, and leave brand marks, illustrations, and functional controls unchanged. The pinned bundle and its license are in `assets/js/`.
 
 ## Service navigation
 

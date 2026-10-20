@@ -21,14 +21,6 @@ $pageBannerEyebrow = 'Streamlined processes to help your business run more effic
 $pageBannerTagline = 'People. Process. Sustainable Growth.';
 $pageBannerDescription = 'We provide comprehensive business process support services to help businesses in the UK, Ireland and USA reduce costs, improve efficiency and focus on their core growth activities.';
 $businessProcessImage = 'assets/services/business-process-support.png';
-$ctaEyebrow = 'Ready to optimise';
-$ctaTitleFirstLine = 'Ready to Optimise';
-$ctaTitleSecondLine = 'Your Business Processes?';
-$ctaDescription = 'Speak to our team and discover how our business process support services can help reduce costs, improve efficiency and support your growth.';
-$ctaButtonLabel = 'Get a Free Consultation';
-$ctaButtonHref = 'contact';
-$ctaShowEmail = false;
-
 require __DIR__ . '/includes/header.php';
 ?>
 
@@ -128,18 +120,7 @@ require __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-    <section class="finance-process section-shell" aria-labelledby="business-process-process-title">
-        <div class="accounting-section-heading" data-reveal="up">
-            <p class="eyebrow"><span class="eyebrow-line"></span>A clear path to better operations</p>
-            <h2 id="business-process-process-title">Our Process</h2>
-        </div>
-        <ol class="finance-process-list">
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span><span class="process-step">01</span><h3>Understand</h3><p>We assess your current processes, requirements and goals.</p></li>
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7m-7 4h7"/></svg></span><span class="process-step">02</span><h3>Design</h3><p>We create a tailored plan with clear scope and workflows.</p></li>
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.7 2.9-.2-.1a1.7 1.7 0 0 0-1.8.2l-.2.1h-3.4"/></svg></span><span class="process-step">03</span><h3>Implement</h3><p>We set up the processes, people and technology.</p></li>
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 17l5-5 4 3 6-8"/><path d="M15 7h5v5"/></svg></span><span class="process-step">04</span><h3>Improve</h3><p>We monitor performance and make continuous enhancements.</p></li>
-        </ol>
-    </section>
+        <?php require __DIR__ . '/includes/process-section.php'; ?>
 </main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

@@ -26,17 +26,18 @@ $homePrefix = $isHomePage ? '' : './';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/lucide-0.468.0.min.js" defer></script>
+    <script src="assets/js/main.js?v=20261020-ai-sparkles" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header">
     <div class="topbar">
         <div class="topbar-inner section-shell">
-            <p class="topbar-location"><span class="location-mark" aria-hidden="true">◉</span> Based in Pakistan <i></i> Supporting Clients in the UK, Ireland &amp; USA</p>
+            <p class="topbar-location"><img class="location-flag" src="assets/flags/pakistan.png" alt="" width="16" height="11"> Based in Pakistan <i></i> Supporting Clients in the UK, Ireland &amp; USA</p>
             <div class="topbar-links">
-                <a href="mailto:info@globaloutsource.com"><span class="top-icon" aria-hidden="true">✉</span>info@globaloutsource.com</a>
-                <a href="tel:+923001234567"><span class="top-icon" aria-hidden="true">☎</span>+92 300 1234567</a>
+                <a href="mailto:info@globaloutsource.com"><span class="top-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg></span>info@globaloutsource.com</a>
+                <a href="tel:+923001234567"><span class="top-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>+92 300 1234567</a>
                 <span class="top-divider"></span>
                 <span class="social-link" aria-hidden="true">in</span><span class="social-link" aria-hidden="true">f</span><span class="social-link social-play" aria-hidden="true">▶</span>
                 <a class="top-search" href="<?= htmlspecialchars($homePrefix, ENT_QUOTES, 'UTF-8') ?>#services" aria-label="Explore our services"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 4.5 4.5"/></svg></a>

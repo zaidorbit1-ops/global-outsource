@@ -1,4 +1,172 @@
 (() => {
+    const iconNames = [
+        [/\b(healthcare|health|medical|clinic|patient)\b/, 'heart-pulse'],
+        [/\b(retail|e-commerce|shop|store|marketplace)\b/, 'shopping-bag'],
+        [/\b(manufactur\w*|production|supply chain)\b/, 'factory'],
+        [/\b(construction|property|developer|contractor)\b/, 'hard-hat'],
+        [/\b(professional services|consultant|law firm|accountancy firm)\b/, 'briefcase-business'],
+        [/\b(chatbots?|virtual assistants?|bots?)\b/, 'bot'],
+        [/\b(secur\w*|protect\w*|privacy|cyber)\b/, 'shield-check'],
+        [/\b(process automation|workflow|process|operation|operational)\b/, 'workflow'],
+        [/\b(data analytics|data-driven|analytics|insight|decision|predictive|forecast)\b/, 'chart-no-axes-combined'],
+        [/\b(cost savings|saving|payments?|receivable|payable)\b/, 'hand-coins'],
+        [/\b(ai|artificial intelligence|machine learning|intelligence|automation)\b/, 'sparkles'],
+        [/\b(modern technologies|framework|platform|latest tools)\b/, 'cpu'],
+        [/\b(meeting|facilities|facility)\b/, 'building-2'],
+        [/\b(years of experience|experience)\b/, 'award'],
+        [/\b(client satisfaction|satisfaction)\b/, 'badge-check'],
+        [/\b(integrity|secure|security|privacy|protection|cyber)\b/, 'shield-check'],
+        [/\b(collaboration|collaborate|partner|partnership|relationship|trust)\b/, 'handshake'],
+        [/\b(respect|inclusion|impact)\b/, 'heart-handshake'],
+        [/\b(continuous learning|learning|training|education|knowledge)\b/, 'lightbulb'],
+        [/\b(improve|improvement|efficiency|growth|performance|result|report)\b/, 'chart-no-axes-combined'],
+        [/\b(mail|email|e-mail|inbox)\b/, 'mail'],
+        [/\b(phone|telephone|call|whatsapp)\b/, 'phone'],
+        [/\b(location|karachi|address|map|visit)\b/, 'map-pin'],
+        [/\b(globe|global|market|country|international|worldwide)\b/, 'globe'],
+        [/\b(understand|assess|discover|research|search|review)\b/, 'search'],
+        [/\b(plan|planning|strategy|design|roadmap|proposal)\b/, 'target'],
+        [/\b(ai|artificial intelligence|machine learning|innovation|intelligence)\b/, 'sparkles'],
+        [/\b(implement|implementation|configure|setup|integration|automation)\b/, 'settings'],
+        [/\b(develop|development|software|code|engineering|website|application)\b/, 'code'],
+        [/\b(cloud|migration|hosting)\b/, 'cloud'],
+        [/\b(server|infrastructure|network|it setup|technology)\b/, 'server'],
+        [/\b(account|accounts|accounting|finance|financial|payroll|bookkeeping|tax|budget|cost)\b/, 'calculator'],
+        [/\b(customer|client|team|people|employee|career|talent|staff|expert)\b/, 'users-round'],
+        [/\b(support|help|services?|maintenance|care|benefit)\b/, 'headset'],
+        [/\b(launch|deploy|delivery|start|success)\b/, 'rocket'],
+        [/\b(time|hour|schedule|availability|working hours|mon|tue|wed|thu|fri)\b/, 'clock'],
+        [/\b(building|business|company|office|industry|industries)\b/, 'building-2'],
+        [/\b(document|file|policy|information|guide|requirement)\b/, 'file-text'],
+        [/\b(quality|check|verified|reliable|compliance)\b/, 'badge-check'],
+        [/\b(contact|message|enquiry|question)\b/, 'message-circle'],
+    ];
+
+    const initializeIcons = () => {
+        if (!window.lucide) {
+            return;
+        }
+
+        const arrowIcons = [
+            ['.button-arrow', 'arrow-right'],
+            ['.button-play', 'arrow-right'],
+            ['.card-arrow', 'arrow-right'],
+            ['.expertise-card-arrow', 'arrow-right'],
+            ['.switcher-arrow', 'chevron-right'],
+            ['.accounting-service-card > a', 'arrow-up-right'],
+            ['.careers-text-link span', 'arrow-right'],
+            ['.testimonial-arrow[data-testimonial-prev]', 'arrow-left'],
+            ['.testimonial-arrow[data-testimonial-next]', 'arrow-right'],
+        ];
+
+        arrowIcons.forEach(([selector, name]) => {
+            document.querySelectorAll(selector).forEach((element) => {
+                const icon = document.createElement('svg');
+                icon.setAttribute('viewBox', '0 0 24 24');
+                icon.setAttribute('data-lucide', name);
+                icon.setAttribute('aria-hidden', 'true');
+                element.replaceChildren(icon);
+            });
+        });
+
+        const iconSelector = [
+            '[class*="icon"] svg',
+            '.top-search svg',
+            '.contact-visit-features svg',
+            '.contact-quick-cards svg',
+            '.careers-value svg',
+            '[data-lucide]',
+        ].join(', ');
+
+        document.querySelectorAll(iconSelector).forEach((svg) => {
+            if (svg.hasAttribute('data-lucide')) {
+                return;
+            }
+
+            let context = svg.parentElement;
+            while (context && context !== document.body && (context.innerText || context.textContent).trim().length < 12) {
+                context = context.parentElement;
+            }
+
+            const link = svg.closest('a');
+            const contextText = context ? (context.innerText || context.textContent).toLowerCase().replace(/\s+/g, ' ') : '';
+            const serviceTitle = svg.closest('.service-card')?.querySelector('h3, .service-content > b')?.textContent.toLowerCase() || '';
+            const className = typeof svg.parentElement?.className === 'string' ? svg.parentElement.className : '';
+            const card = svg.closest('article, li, a');
+            const cardHeading = card?.querySelector('h3, h4, b, strong')?.textContent.toLowerCase() || '';
+            let iconName = null;
+
+            if (serviceTitle.includes('account') || serviceTitle.includes('finance')) {
+                iconName = 'calculator';
+            } else if (serviceTitle.includes('it solutions')) {
+                iconName = 'monitor';
+            } else if (serviceTitle.includes('ai solutions')) {
+                iconName = 'sparkles';
+            } else if (serviceTitle.includes('software development')) {
+                iconName = 'code';
+            } else if (className.includes('switcher-icon')) {
+                const serviceName = link?.innerText.toLowerCase() || '';
+                iconName = serviceName.includes('account') || serviceName.includes('finance') ? 'calculator'
+                    : serviceName.includes('it solutions') ? 'monitor'
+                        : serviceName.includes('ai solutions') ? 'sparkles'
+                            : serviceName.includes('software development') ? 'code'
+                                : serviceName.includes('managed it') ? 'server'
+                                    : serviceName.includes('cloud') ? 'cloud'
+                                        : serviceName.includes('business process') ? 'workflow' : null;
+            } else if (className.includes('expertise-industry-icon')) {
+                iconName = iconNames.find(([pattern]) => pattern.test(cardHeading))?.[1] || null;
+            } else if (className.includes('expertise-stat-icon')) {
+                const statistic = card?.querySelector('small')?.textContent.toLowerCase() || '';
+                iconName = statistic.includes('worldwide') ? 'users-round'
+                    : statistic.includes('market') ? 'globe'
+                        : iconNames.find(([pattern]) => pattern.test(statistic))?.[1] || null;
+            } else if (className.includes('careers-value')) {
+                iconName = iconNames.find(([pattern]) => pattern.test(cardHeading))?.[1] || null;
+            } else if (className.includes('expertise-card-icon') || className.includes('accounting-card-icon') || className.includes('accounting-benefit-icon')) {
+                iconName = iconNames.find(([pattern]) => pattern.test(cardHeading))?.[1] || null;
+            } else if (className.includes('process-icon')) {
+                iconName = /\b(understand|assess)\b/.test(cardHeading) ? 'search'
+                    : /\b(plan)\b/.test(cardHeading) ? 'target'
+                        : /\b(design)\b/.test(cardHeading) ? 'pen-tool'
+                            : /\b(develop)\b/.test(cardHeading) ? 'code'
+                                : /\b(implement)\b/.test(cardHeading) ? 'settings'
+                                    : /\b(deploy|launch)\b/.test(cardHeading) ? 'rocket'
+                                        : /\b(support)\b/.test(cardHeading) ? 'headset'
+                                            : /\b(improv)\b/.test(cardHeading) ? 'chart-no-axes-combined' : null;
+            } else if (svg.parentElement?.classList.contains('top-search')) {
+                iconName = 'search';
+            } else if (link?.getAttribute('href')?.startsWith('mailto:')) {
+                iconName = 'mail';
+            } else if (link?.getAttribute('href')?.startsWith('tel:')) {
+                iconName = 'phone';
+            } else if (/@/.test(contextText)) {
+                iconName = 'mail';
+            } else if (/\+?\d[\d\s().-]{7,}\d/.test(contextText)) {
+                iconName = 'phone';
+            } else if (/\b(mon|tue|wed|thu|fri)\b.*\b(am|pm)\b/.test(contextText)) {
+                iconName = 'clock';
+            } else {
+                iconName = iconNames.find(([pattern]) => pattern.test(contextText))?.[1] || null;
+            }
+
+            if (!iconName) {
+                iconName = iconNames.find(([pattern]) => pattern.test(contextText))?.[1] || null;
+            }
+
+            if (!iconName) {
+                return;
+            }
+
+            if (window.lucide.icons[iconName.replace(/(^|-)(\w)/g, (_, _separator, letter) => letter.toUpperCase())]) {
+                svg.setAttribute('data-lucide', iconName);
+            }
+        });
+
+        window.lucide.createIcons({ attrs: { strokeWidth: 1.7 } });
+    };
+
+    initializeIcons();
+
     const navToggle = document.querySelector('.nav-toggle');
     const navigation = document.querySelector('.primary-nav');
     const dropdownTrigger = document.querySelector('.dropdown-trigger');

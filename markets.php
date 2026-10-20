@@ -65,19 +65,11 @@ $marketBenefits = [
     ['icon' => 'm12 3 8 4v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V7l8-4Zm-3 9 2 2 4-4', 'title' => 'Consistent Quality', 'detail' => 'Standards'],
 ];
 $marketApproach = [
-    ['number' => '01', 'title' => 'Understand', 'text' => 'We assess your market requirements, regulatory needs and business goals.'],
-    ['number' => '02', 'title' => 'Plan', 'text' => 'We design a tailored solution for your market with clear scope and timelines.'],
-    ['number' => '03', 'title' => 'Deliver', 'text' => 'Our team delivers efficient, reliable services using the latest technology.'],
-    ['number' => '04', 'title' => 'Support', 'text' => 'We provide ongoing support and continuous improvement as you grow.'],
+    ['icon' => 'M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15ZM16 16l5 5', 'title' => 'Understand', 'text' => 'We assess your market requirements, regulatory needs and business goals.'],
+    ['icon' => 'M6 3h9l4 4v14H6z M14 3v5h5M9 13h7m-7 4h7', 'title' => 'Plan', 'text' => 'We design a tailored solution for your market with clear scope and timelines.'],
+    ['icon' => 'M3 20h18M5 17l5-5 4 3 6-8M15 7h5v5', 'title' => 'Deliver', 'text' => 'Our team delivers efficient, reliable services using the latest technology.'],
+    ['icon' => 'M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2m6-10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm7 1a4 4 0 0 1 3 4v2', 'title' => 'Support', 'text' => 'We provide ongoing support and continuous improvement as you grow.'],
 ];
-
-$ctaEyebrow = 'Your next market opportunity starts here';
-$ctaTitleFirstLine = 'Expand Your Business';
-$ctaTitleSecondLine = 'with a Trusted Global Partner';
-$ctaDescription = 'Speak to our team to learn how our multi-market expertise can support your business goals.';
-$ctaButtonLabel = 'Get a Free Consultation';
-$ctaButtonHref = 'contact';
-$ctaShowEmail = false;
 
 require __DIR__ . '/includes/header.php';
 ?>
@@ -93,12 +85,12 @@ require __DIR__ . '/includes/header.php';
             <a class="button button-primary" href="contact">Get a Free Consultation <span class="button-arrow" aria-hidden="true">→</span></a>
         </div>
         <div class="markets-map-frame" data-reveal="right">
-            <?php if (is_file(__DIR__ . '/assets/markets/focus-markets.png')): ?>
-                <img src="assets/markets/focus-markets.png" alt="Global delivery connections between the United States, United Kingdom, Ireland and Pakistan" width="1672" height="941">
+            <?php if (is_file(__DIR__ . '/assets/markets/markets.png')): ?>
+                <img src="assets/markets/markets.png" alt="Global delivery connections between the United States, United Kingdom, Ireland and Pakistan" width="1672" height="941">
             <?php else: ?>
                 <div class="markets-map-placeholder"><span aria-hidden="true">◎</span><b>Global reach.<br>Local expertise.</b></div>
             <?php endif; ?>
-            <span class="markets-map-caption"><span aria-hidden="true">●</span> Based in Pakistan. Supporting businesses worldwide.</span>
+            <span class="markets-map-caption"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span> Based in Pakistan. Supporting businesses worldwide.</span>
         </div>
     </section>
 
@@ -109,12 +101,11 @@ require __DIR__ . '/includes/header.php';
             <p>Local insight and dependable support for businesses in every market we serve.</p>
         </div>
         <div class="markets-country-grid">
-            <?php foreach ($marketCountries as $index => $country): ?>
+            <?php foreach ($marketCountries as $country): ?>
                 <?php if (!is_file(__DIR__ . '/' . $country['image']) || !is_file(__DIR__ . '/' . $country['flag'])) { continue; } ?>
                 <article class="markets-country-card" data-reveal="up">
                     <div class="markets-country-image">
                         <img src="<?= htmlspecialchars($country['image'], ENT_QUOTES, 'UTF-8') ?>" alt="<?= htmlspecialchars($country['imageAlt'], ENT_QUOTES, 'UTF-8') ?>" width="720" height="440" loading="lazy">
-                        <span class="markets-country-number">0<?= $index + 1 ?> <i>/ 03</i></span>
                         <span class="markets-country-flag">
                             <img src="<?= htmlspecialchars($country['flag'], ENT_QUOTES, 'UTF-8') ?>" alt="" width="48" height="32" loading="lazy">
                         </span>
@@ -189,7 +180,7 @@ require __DIR__ . '/includes/header.php';
         <ol class="markets-approach-list">
             <?php foreach ($marketApproach as $step): ?>
                 <li data-reveal="up">
-                    <span class="markets-approach-number"><?= htmlspecialchars($step['number'], ENT_QUOTES, 'UTF-8') ?></span>
+                    <span class="markets-approach-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="<?= htmlspecialchars($step['icon'], ENT_QUOTES, 'UTF-8') ?>"/></svg></span>
                     <span class="markets-approach-copy"><b><?= htmlspecialchars($step['title'], ENT_QUOTES, 'UTF-8') ?></b><span><?= htmlspecialchars($step['text'], ENT_QUOTES, 'UTF-8') ?></span></span>
                 </li>
             <?php endforeach; ?>

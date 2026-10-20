@@ -14,7 +14,7 @@ $breadcrumbItems = [
     ['label' => 'Home', 'url' => 'index'],
     ['label' => 'About Us'],
 ];
-$companyImage = 'assets/about/pakistan-based-company.png';
+$companyImage = 'assets/about/about-sec1.png';
 $pageBannerTitle = 'About';
 $pageBannerAccent = 'Global Outsource';
 $pageBannerEyebrow = 'Global talent. Professional expertise. International standards.';
@@ -52,7 +52,7 @@ require __DIR__ . '/includes/header.php';
         <div class="about-story-visual" data-reveal="left">
             <div class="about-story-image">
                 <?php if (is_file(__DIR__ . '/' . $companyImage)): ?>
-                    <img src="<?= htmlspecialchars($companyImage, ENT_QUOTES, 'UTF-8') ?>" alt="A professional Pakistan-based Global Outsource workplace" width="1000" height="700" loading="lazy">
+                    <img src="<?= htmlspecialchars($companyImage, ENT_QUOTES, 'UTF-8') ?>" alt="A professional Pakistan-based Global Outsource workplace" width="1360" height="1000" loading="lazy">
                 <?php else: ?>
                     <div class="about-image-placeholder about-image-placeholder-story" role="img" aria-label="Pakistan-based company workplace image placeholder">
                         <span class="about-placeholder-mark" aria-hidden="true">GO</span>
@@ -120,11 +120,11 @@ require __DIR__ . '/includes/header.php';
                 <?php endif; ?>
             </div>
             <ul class="about-pakistan-benefits" data-reveal="right">
-                <li><span aria-hidden="true">01</span><b>Skilled &amp; Educated Workforce</b></li>
-                <li><span aria-hidden="true">02</span><b>Strong IT &amp; Professional Talent</b></li>
-                <li><span aria-hidden="true">03</span><b>Cost Competitive Solutions</b></li>
-                <li><span aria-hidden="true">04</span><b>Excellent English Communication</b></li>
-                <li><span aria-hidden="true">05</span><b>Supportive Time Zone for UK, Ireland &amp; USA</b></li>
+                <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1m3-9a3 3 0 1 0-1-5.8M18 14a5 5 0 0 1 3 4.6v1"/></svg></span><b>Skilled &amp; Educated Workforce</b></li>
+                <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4m-5-9 2 2 4-4"/></svg></span><b>Strong IT &amp; Professional Talent</b></li>
+                <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20m7-16H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H5"/></svg></span><b>Cost Competitive Solutions</b></li>
+                <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4z"/><path d="M8 9h8m-8 4h5"/></svg></span><b>Excellent English Communication</b></li>
+                <li><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b>Supportive Time Zone for UK, Ireland &amp; USA</b></li>
             </ul>
         </div>
     </section>

@@ -207,13 +207,6 @@ $careerValues = [
 ];
 
 $talentEmail = 'mailto:info@globaloutsource.com?subject=' . rawurlencode('Careers - CV Submission');
-$ctaEyebrow = 'Join our talent network';
-$ctaTitleFirstLine = 'Your next chapter';
-$ctaTitleSecondLine = 'could start with us.';
-$ctaDescription = 'We are always glad to hear from thoughtful, motivated people. Send us your CV and a short introduction, and our team can keep you in mind for suitable future opportunities.';
-$ctaButtonLabel = 'Send Your CV';
-$ctaButtonHref = $talentEmail;
-$ctaShowEmail = false;
 
 require __DIR__ . '/includes/header.php';
 ?>
@@ -261,12 +254,11 @@ require __DIR__ . '/includes/header.php';
             <p>We invest in our people and create opportunities to learn, grow and build a rewarding career with a global perspective.</p>
         </div>
         <div class="careers-benefit-grid">
-            <?php foreach ($careerBenefits as $benefitIndex => $benefit): ?>
+            <?php foreach ($careerBenefits as $benefit): ?>
                 <article class="careers-benefit-card" data-reveal="up">
                     <span class="careers-benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="<?= htmlspecialchars($benefit['icon'], ENT_QUOTES, 'UTF-8') ?>"/></svg></span>
                     <h3><?= htmlspecialchars($benefit['title'], ENT_QUOTES, 'UTF-8') ?></h3>
                     <p><?= htmlspecialchars($benefit['description'], ENT_QUOTES, 'UTF-8') ?></p>
-                    <span class="careers-benefit-index" aria-hidden="true">0<?= $benefitIndex + 1 ?></span>
                 </article>
             <?php endforeach; ?>
         </div>
@@ -285,11 +277,11 @@ require __DIR__ . '/includes/header.php';
                     <?php foreach ($jobs as $job): ?>
                         <article class="careers-opening-card" data-reveal="up">
                             <div class="careers-opening-card-top">
-                                <span class="careers-opening-card-icon" aria-hidden="true">↗</span>
+                                <span class="careers-opening-card-icon" aria-hidden="true">›</span>
                                 <span class="careers-opening-meta"><?= backend_escape($job['employment_type']) ?><?= $job['department'] !== '' ? ' · ' . backend_escape($job['department']) : '' ?></span>
                             </div>
                             <h3><?= backend_escape($job['title']) ?></h3>
-                            <p class="careers-opening-location"><span aria-hidden="true">⌖</span> <?= backend_escape($job['location']) ?></p>
+                            <p class="careers-opening-location"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span> <?= backend_escape($job['location']) ?></p>
                             <p class="careers-opening-summary"><?= backend_escape($job['summary']) ?></p>
                             <?php if ($job['description'] !== ''): ?>
                                 <details class="careers-opening-details">
@@ -346,7 +338,7 @@ require __DIR__ . '/includes/header.php';
                     <h2 id="careers-openings-title"><?= $jobsAvailable ? 'No Open Positions' : 'We’re Updating Our Openings.' ?> <span><?= $jobsAvailable ? 'at the Moment.' : 'Please Check Back Soon.' ?></span></h2>
                     <p><?= $jobsAvailable ? 'We do not have any open positions right now, but we are always interested in hearing from talented and motivated people who share our values.' : 'Our current vacancies could not be loaded right now. Please check back soon or contact our team for assistance.' ?></p>
                     <p><?= $jobsAvailable ? 'Please check back soon, or contact our team to learn about future opportunities.' : 'We appreciate your interest in joining Global Outsource.' ?></p>
-                    <a class="careers-text-link" href="<?= htmlspecialchars($talentEmail, ENT_QUOTES, 'UTF-8') ?>">Introduce yourself to our team <span aria-hidden="true">↗</span></a>
+                    <a class="careers-text-link" href="<?= htmlspecialchars($talentEmail, ENT_QUOTES, 'UTF-8') ?>">Introduce yourself to our team <span aria-hidden="true">→</span></a>
                 </div>
             <?php endif; ?>
         </div>

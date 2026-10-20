@@ -121,18 +121,7 @@ require __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-    <section class="finance-process section-shell" aria-labelledby="software-process-title">
-        <div class="accounting-section-heading" data-reveal="up">
-            <p class="eyebrow"><span class="eyebrow-line"></span>Simple, structured, dependable</p>
-            <h2 id="software-process-title">Our Process</h2>
-        </div>
-        <ol class="finance-process-list">
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span><span class="process-step">01</span><h3>Understand</h3><p>We learn about your business goals, challenges and requirements.</p></li>
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7m-7 4h7"/></svg></span><span class="process-step">02</span><h3>Plan</h3><p>We design a tailored solution with clear scope, technology and timeline.</p></li>
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-9-2 10"/></svg></span><span class="process-step">03</span><h3>Develop</h3><p>Our team builds and tests the solution with regular updates.</p></li>
-            <li data-reveal="up"><span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 13v-2a8 8 0 0 1 16 0v2"/><path d="M4 13H2v5h4v-5zm16 0h2v5h-4v-5zM6 18a6 6 0 0 0 6 4h2"/></svg></span><span class="process-step">04</span><h3>Deploy &amp; Support</h3><p>We launch the solution and provide ongoing support and improvements.</p></li>
-        </ol>
-    </section>
+        <?php require __DIR__ . '/includes/process-section.php'; ?>
 </main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

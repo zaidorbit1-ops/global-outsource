@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/includes/backend.php';
+require_once __DIR__ . '/includes/business-details.php';
 
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
@@ -105,7 +106,6 @@ $pageBannerAccent = 'Us';
 $pageBannerEyebrow = 'We are here to help';
 $pageBannerTagline = 'Let’s Start a Conversation';
 $pageBannerDescription = 'Whether you have a question, need support, or want to discuss how we can work together, our team is ready to hear from you.';
-$hideFooterCta = true;
 
 $contactDetails = [
     [
@@ -125,8 +125,9 @@ $contactDetails = [
     [
         'icon' => 'M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Zm-5 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
         'title' => 'Office Address',
-        'primary' => 'Karachi, Pakistan',
-        'secondary' => 'Our team is based in Karachi and supports clients worldwide.',
+        'primary' => implode("\n", OFFICE_ADDRESS_LINES),
+        'secondary' => 'Karachi, Sindh, Pakistan.',
+        'multiline' => true,
         'href' => '#karachi-map',
     ],
     [
@@ -169,9 +170,9 @@ require __DIR__ . '/includes/header.php';
                 <div class="contact-info-copy">
                     <h2><?= htmlspecialchars($detail['title'], ENT_QUOTES, 'UTF-8') ?></h2>
                     <?php if ($detail['href'] !== null): ?>
-                        <a href="<?= htmlspecialchars($detail['href'], ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($detail['primary'], ENT_QUOTES, 'UTF-8') ?></a>
+                        <a href="<?= htmlspecialchars($detail['href'], ENT_QUOTES, 'UTF-8') ?>"><?= !empty($detail['multiline']) ? nl2br(htmlspecialchars($detail['primary'], ENT_QUOTES, 'UTF-8')) : htmlspecialchars($detail['primary'], ENT_QUOTES, 'UTF-8') ?></a>
                     <?php else: ?>
-                        <b><?= htmlspecialchars($detail['primary'], ENT_QUOTES, 'UTF-8') ?></b>
+                        <b><?= !empty($detail['multiline']) ? nl2br(htmlspecialchars($detail['primary'], ENT_QUOTES, 'UTF-8')) : htmlspecialchars($detail['primary'], ENT_QUOTES, 'UTF-8') ?></b>
                     <?php endif; ?>
                     <p><?= htmlspecialchars($detail['secondary'], ENT_QUOTES, 'UTF-8') ?></p>
                 </div>
@@ -183,8 +184,8 @@ require __DIR__ . '/includes/header.php';
         <div class="contact-location-panel" data-reveal="left">
             <div class="contact-map-art" id="karachi-map">
                 <iframe
-                    title="Google Maps showing Karachi, Pakistan"
-                    src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m2!2m1!1sKarachi,+Pakistan!3m1!1sen!5m1!1sen"
+                    title="Google Maps showing the Global Outsource office at <?= htmlspecialchars(implode(', ', OFFICE_ADDRESS_LINES), ENT_QUOTES, 'UTF-8') ?>"
+                    src="https://www.google.com/maps?q=<?= rawurlencode(OFFICE_MAP_COORDINATES) ?>&amp;z=17&amp;output=embed"
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                     allowfullscreen>
