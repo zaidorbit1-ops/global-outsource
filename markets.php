@@ -138,7 +138,7 @@ require __DIR__ . '/includes/header.php';
                 <?php foreach ($additionalMarkets as $market): ?>
                     <article class="markets-additional-card" data-reveal="up">
                         <?php if (is_file(__DIR__ . '/' . $market['flag'])): ?>
-                            <img src="<?= htmlspecialchars($market['flag'], ENT_QUOTES, 'UTF-8') ?>" alt="" width="48" height="32" loading="lazy">
+                            <img src="<?= htmlspecialchars($market['flag'], ENT_QUOTES, 'UTF-8') ?>" alt="" width="54" height="36" loading="lazy">
                         <?php else: ?>
                             <span class="markets-flag-needed" aria-hidden="true"><?= htmlspecialchars($market['code'], ENT_QUOTES, 'UTF-8') ?></span>
                         <?php endif; ?>

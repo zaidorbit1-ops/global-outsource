@@ -46,7 +46,7 @@ require __DIR__ . '/includes/header.php';
         </section>
         <section class="legal-section">
             <span class="legal-section-marker" aria-hidden="true"></span>
-            <div><h2>Liability and questions</h2><p>To the extent permitted by applicable law, website materials are provided for general information without a guarantee that they will be complete, current or error-free. Nothing in these terms excludes liability that cannot lawfully be excluded. For questions about these terms or our services, contact <a href="mailto:info@globaloutsource.com">info@globaloutsource.com</a>.</p></div>
+            <div><h2>Liability and questions</h2><p>To the extent permitted by applicable law, website materials are provided for general information without a guarantee that they will be complete, current or error-free. Nothing in these terms excludes liability that cannot lawfully be excluded. For questions about these terms or our services, contact <a href="mailto:info@theglobaloutsource.com">info@theglobaloutsource.com</a>.</p></div>
         </section>
     </article>
 </main>

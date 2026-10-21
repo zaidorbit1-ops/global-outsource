@@ -5,9 +5,9 @@ $localConfigPath = __DIR__ . '/database.local.php';
 $localConfig = is_file($localConfigPath) ? require $localConfigPath : [];
 $databaseSettings = [
     'db_host' => 'localhost',
-    'db_name' => 'u456646410_global',
-    'db_user' => 'u456646410_global',
-    'db_password' => 'Globaloutsurce@123',
+    'db_name' => 'u717775154_global',
+    'db_user' => 'u717775154_global',
+    'db_password' => 'Fordomain112',
     'db_port' => '3306',
     'db_charset' => 'utf8mb4',
 ];

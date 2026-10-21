@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($contactErrors === []) {
         if (!database_is_configured()) {
-            $contactErrors[] = 'The message form is temporarily unavailable. Please email info@globaloutsource.com.';
+            $contactErrors[] = 'The message form is temporarily unavailable. Please email info@theglobaloutsource.com.';
         } else {
             try {
                 $database = app_database();
@@ -79,11 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $contactErrors[] = $exception->getMessage();
                 } else {
                     error_log('Contact form could not save a message: ' . $exception->getMessage());
-                    $contactErrors[] = 'We could not save your message right now. Please try again later or email info@globaloutsource.com.';
+                    $contactErrors[] = 'We could not save your message right now. Please try again later or email info@theglobaloutsource.com.';
                 }
             } catch (Throwable $exception) {
                 error_log('Contact form could not save a message: ' . $exception->getMessage());
-                $contactErrors[] = 'We could not save your message right now. Please try again later or email info@globaloutsource.com.';
+                $contactErrors[] = 'We could not save your message right now. Please try again later or email info@theglobaloutsource.com.';
             }
         }
 
@@ -118,9 +118,9 @@ $contactDetails = [
     [
         'icon' => 'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm18 2-10 8L2 6',
         'title' => 'Email',
-        'primary' => 'info@globaloutsource.com',
+        'primary' => 'info@theglobaloutsource.com',
         'secondary' => 'We typically respond within one business day.',
-        'href' => 'mailto:info@globaloutsource.com',
+        'href' => 'mailto:info@theglobaloutsource.com',
     ],
     [
         'icon' => 'M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Zm-5 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z',
@@ -275,7 +275,7 @@ require __DIR__ . '/includes/header.php';
                 <p class="eyebrow">Need a quick answer?</p>
                 <h2 id="contact-quick-title">Let’s find the <span>right next step.</span></h2>
                 <p>Tell us what you need help with. We’ll connect you with the right person on our team.</p>
-                <a class="button button-secondary contact-quick-button" href="mailto:info@globaloutsource.com">Email Our Team <span class="button-arrow" aria-hidden="true">→</span></a>
+                <a class="button button-secondary contact-quick-button" href="mailto:info@theglobaloutsource.com">Email Our Team <span class="button-arrow" aria-hidden="true">→</span></a>
             </div>
             <div class="contact-quick-cards" aria-hidden="true">
                 <span><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3.1a2 2 0 0 1-.6 1.7L7.1 10.4a16 16 0 0 0 6 6l1.9-1.9a2 2 0 0 1 1.7-.6l3.1.5a2 2 0 0 1 2.2 2.5Z"/></svg></span>

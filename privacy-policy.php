@@ -42,11 +42,11 @@ require __DIR__ . '/includes/header.php';
         </section>
         <section class="legal-section">
             <span class="legal-section-marker" aria-hidden="true"></span>
-            <div><h2>Your choices and requests</h2><p>You may contact us to ask about personal information you submitted, request a correction, or ask us to delete it where we are able to do so. We may need to retain information where required for a current agreement, legitimate business record or applicable legal obligation. Contact <a href="mailto:info@globaloutsource.com">info@globaloutsource.com</a> with your request.</p></div>
+            <div><h2>Your choices and requests</h2><p>You may contact us to ask about personal information you submitted, request a correction, or ask us to delete it where we are able to do so. We may need to retain information where required for a current agreement, legitimate business record or applicable legal obligation. Contact <a href="mailto:info@theglobaloutsource.com">info@theglobaloutsource.com</a> with your request.</p></div>
         </section>
         <section class="legal-section">
             <span class="legal-section-marker" aria-hidden="true"></span>
-            <div><h2>Updates and contact</h2><p>We may update this policy when website practices change. The latest version will be published on this page with its updated month and year. For privacy questions, contact Global Outsource at <a href="mailto:info@globaloutsource.com">info@globaloutsource.com</a>.</p></div>
+            <div><h2>Updates and contact</h2><p>We may update this policy when website practices change. The latest version will be published on this page with its updated month and year. For privacy questions, contact Global Outsource at <a href="mailto:info@theglobaloutsource.com">info@theglobaloutsource.com</a>.</p></div>
         </section>
     </article>
 </main>

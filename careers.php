@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'docx' => ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/zip'],
         ];
         if (!class_exists(finfo::class)) {
-            $applicationErrors[] = 'CV uploads are temporarily unavailable. Please email your CV to info@globaloutsource.com.';
+            $applicationErrors[] = 'CV uploads are temporarily unavailable. Please email your CV to info@theglobaloutsource.com.';
         } else {
             $fileInfo = new finfo(FILEINFO_MIME_TYPE);
             $mimeType = $fileInfo->file($upload['tmp_name']);
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($applicationErrors === []) {
         if (!database_is_configured()) {
-            $applicationErrors[] = 'Applications are temporarily unavailable. Please email your CV to info@globaloutsource.com.';
+            $applicationErrors[] = 'Applications are temporarily unavailable. Please email your CV to info@theglobaloutsource.com.';
         } else {
             $storedFilePath = null;
 
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $applicationErrors[] = $exception->getMessage();
                 } else {
                     error_log('Careers application could not be saved: ' . $exception->getMessage());
-                    $applicationErrors[] = 'We could not save your application right now. Please try again later or email info@globaloutsource.com.';
+                    $applicationErrors[] = 'We could not save your application right now. Please try again later or email info@theglobaloutsource.com.';
                 }
             } catch (Throwable $exception) {
                 if (is_string($storedFilePath) && is_file($storedFilePath)) {
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 error_log('Careers application could not be saved: ' . $exception->getMessage());
-                $applicationErrors[] = 'We could not save your application right now. Please try again later or email info@globaloutsource.com.';
+                $applicationErrors[] = 'We could not save your application right now. Please try again later or email info@theglobaloutsource.com.';
             }
 
         }
@@ -206,7 +206,7 @@ $careerValues = [
     ['icon' => 'M12 2a10 10 0 1 0 10 10M12 2v10l7 4m-2-14v5h5', 'title' => 'Global Mindset'],
 ];
 
-$talentEmail = 'mailto:info@globaloutsource.com?subject=' . rawurlencode('Careers - CV Submission');
+$talentEmail = 'mailto:info@theglobaloutsource.com?subject=' . rawurlencode('Careers - CV Submission');
 
 require __DIR__ . '/includes/header.php';
 ?>

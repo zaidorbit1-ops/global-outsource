@@ -34,7 +34,7 @@ require __DIR__ . '/includes/header.php';
         </section>
         <section class="legal-section">
             <span class="legal-section-marker" aria-hidden="true"></span>
-            <div><h2>Submit a written request</h2><p>Send your request to <a href="mailto:info@globaloutsource.com">info@globaloutsource.com</a>. Include your organisation name, the relevant service or project, invoice or agreement reference, the requested cancellation or refund, and a short explanation. Please use an authorised contact for the engagement.</p></div>
+            <div><h2>Submit a written request</h2><p>Send your request to <a href="mailto:info@theglobaloutsource.com">info@theglobaloutsource.com</a>. Include your organisation name, the relevant service or project, invoice or agreement reference, the requested cancellation or refund, and a short explanation. Please use an authorised contact for the engagement.</p></div>
         </section>
         <section class="legal-section">
             <span class="legal-section-marker" aria-hidden="true"></span>
@@ -46,7 +46,7 @@ require __DIR__ . '/includes/header.php';
         </section>
         <section class="legal-section">
             <span class="legal-section-marker" aria-hidden="true"></span>
-            <div><h2>Questions and applicable rights</h2><p>For questions about a payment, cancellation or refund, contact <a href="mailto:info@globaloutsource.com">info@globaloutsource.com</a>. This policy does not limit any rights that cannot be excluded under applicable law; your signed agreement and applicable legal requirements remain relevant.</p></div>
+            <div><h2>Questions and applicable rights</h2><p>For questions about a payment, cancellation or refund, contact <a href="mailto:info@theglobaloutsource.com">info@theglobaloutsource.com</a>. This policy does not limit any rights that cannot be excluded under applicable law; your signed agreement and applicable legal requirements remain relevant.</p></div>
         </section>
     </article>
 </main>
