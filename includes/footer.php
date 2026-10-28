@@ -23,7 +23,7 @@ require __DIR__ . '/call-to-action.php';
         <div class="footer-column footer-contact">
             <h2>Contact Information</h2>
             <a href="mailto:info@theglobaloutsource.com"><span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg></span>info@theglobaloutsource.com</a>
-            <a href="tel:+923001234567"><span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>+92 300 1234567</a>
+            <a href="tel:++923104455625"><span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>+92 3104455625</a>
             <p><span class="footer-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><?= nl2br(htmlspecialchars(implode("\n", OFFICE_ADDRESS_LINES), ENT_QUOTES, 'UTF-8')) ?></span></p>
         </div>
         <div class="footer-column footer-markets">

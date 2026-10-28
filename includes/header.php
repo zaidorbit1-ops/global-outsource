@@ -6,6 +6,7 @@ $pageDescription = $pageDescription ?? 'Global Outsource provides accountancy, I
 $isHomePage = $currentPage === 'home';
 $homePrefix = $isHomePage ? '' : './';
 $stylesheetVersion = filemtime(__DIR__ . '/../assets/css/style.css');
+$mainScriptVersion = filemtime(__DIR__ . '/../assets/js/main.js');
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,7 +29,7 @@ $stylesheetVersion = filemtime(__DIR__ . '/../assets/css/style.css');
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css?v=<?= htmlspecialchars((string) $stylesheetVersion, ENT_QUOTES, 'UTF-8') ?>">
     <script src="assets/js/lucide-0.468.0.min.js" defer></script>
-    <script src="assets/js/main.js?v=20261020-ai-sparkles" defer></script>
+    <script src="assets/js/main.js?v=<?= htmlspecialchars((string) $mainScriptVersion, ENT_QUOTES, 'UTF-8') ?>" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -38,7 +39,7 @@ $stylesheetVersion = filemtime(__DIR__ . '/../assets/css/style.css');
             <p class="topbar-location"><img class="location-flag" src="assets/flags/pakistan.png" alt="" width="16" height="11"> Based in Pakistan <i></i> Supporting Clients in the UK, Ireland &amp; USA</p>
             <div class="topbar-links">
                 <a href="mailto:info@theglobaloutsource.com"><span class="top-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg></span>info@theglobaloutsource.com</a>
-                <a href="tel:+923001234567"><span class="top-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>+92 300 1234567</a>
+                <a href="tel:++923104455625"><span class="top-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2 2a14 14 0 0 0 4 4l2-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>+92 3104455625</a>
                 <span class="top-divider"></span>
                 <span class="social-link social-instagram" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-icon-dot" cx="17.5" cy="6.5" r="1"/></svg></span>
                 <span class="social-link social-facebook" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.6V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.2v3H10v8h3.5Z"/></svg></span>

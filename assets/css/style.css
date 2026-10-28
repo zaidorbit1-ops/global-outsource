@@ -1574,3 +1574,181 @@ main#main-content :is(.benefits-band, .expertise-section, .finance-value-band, .
         --feature-text-size: 13px;
     }
 }
+
+.eyebrow {
+    font-weight: 900;
+}
+
+.section-intro {
+    font-weight: 600;
+}
+
+.breadcrumb li {
+    font-size: 13px;
+}
+
+.page-banner-breadcrumb li {
+    font-size: 12px;
+}
+
+.page-banner .eyebrow {
+    font-size: 11px;
+}
+
+.page-banner-tagline {
+    font-size: clamp(15px, 1.6vw, 19px);
+}
+
+.home-page .benefit-item {
+    transition: background-color .25s ease, transform .25s ease;
+}
+
+.home-page .benefit-item:hover {
+    background-color: #ffffff0b;
+    transform: translateY(-4px);
+}
+
+.home-page .principle-row {
+    transition: background-color .22s ease, padding .22s ease, transform .22s ease;
+}
+
+.home-page .principle-row:hover {
+    padding-inline: 9px;
+    border-radius: 7px;
+    background-color: #fff8f8;
+    transform: translateX(4px);
+}
+
+.home-page .principle-row > span svg {
+    transition: transform .22s ease;
+}
+
+.home-page .principle-row:hover > span svg {
+    transform: rotate(-8deg) scale(1.12);
+}
+
+.home-page .expertise-art .tech-chip {
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.home-page .expertise-art:hover .tech-chip {
+    transform: rotate(0) scale(1.06);
+    box-shadow: 0 0 58px #ed1c2e58, inset 0 0 22px #ed1c2e18;
+}
+
+.home-page .expertise-art .tech-node {
+    transition: transform .25s ease;
+}
+
+.home-page .expertise-art:hover .node-one { transform: translate(-3px,-4px) rotate(-7deg); }
+.home-page .expertise-art:hover .node-two { transform: translate(4px,-3px) rotate(7deg); }
+.home-page .expertise-art:hover .node-three { transform: translate(-2px,4px) rotate(6deg); }
+
+.home-page .expertise-list li {
+    transition: color .22s ease, transform .22s ease;
+}
+
+.home-page .expertise-list li:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.home-page .expertise-list li span {
+    transition: color .22s ease, background-color .22s ease, border-color .22s ease, transform .22s ease;
+}
+
+.home-page .expertise-list li:hover span {
+    transform: scale(1.08);
+    border-color: var(--red);
+    color: #fff;
+    background-color: var(--red);
+}
+
+.home-page .testimonial-slider {
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.home-page .testimonial-slider:hover {
+    transform: translateY(-4px);
+    border-color: #f0c6ca;
+    box-shadow: 0 16px 34px #15191d12;
+}
+
+.home-page .trust-values > div {
+    transition: transform .25s ease;
+}
+
+.home-page .trust-values > div:hover {
+    transform: translateY(-5px);
+}
+
+.home-page .trust-value-icon {
+    transition: color .25s ease, transform .25s ease;
+}
+
+.home-page .trust-values > div:hover .trust-value-icon {
+    color: var(--red-dark);
+    transform: scale(1.12) rotate(-5deg);
+}
+
+@media (max-width: 600px) {
+    .breadcrumb li { font-size: 12px; }
+    .page-banner-breadcrumb li { font-size: 11px; }
+    .page-banner .eyebrow { font-size: 10px; }
+    .page-banner-tagline { font-size: 15px; }
+}
+
+@media (max-width: 440px) {
+    .page-banner .eyebrow { font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page .benefit-item,
+    .home-page .principle-row,
+    .home-page .principle-row > span svg,
+    .home-page .expertise-art .tech-chip,
+    .home-page .expertise-art .tech-node,
+    .home-page .expertise-list li,
+    .home-page .expertise-list li span,
+    .home-page .testimonial-slider,
+    .home-page .trust-values > div,
+    .home-page .trust-value-icon {
+        transition: none;
+    }
+}
+
+.page-transition-ready {
+    transition: opacity 140ms ease;
+}
+
+.page-transition-ready.page-transition-out {
+    opacity: .88;
+}
+
+.micro-pointer-active {
+    translate: var(--micro-offset-x, 0px) var(--micro-offset-y, 0px);
+}
+
+.contact-form .contact-field input[aria-invalid="true"],
+.contact-form .contact-field select[aria-invalid="true"],
+.contact-form .contact-field textarea[aria-invalid="true"],
+.careers-application-form input[aria-invalid="true"],
+.careers-application-form select[aria-invalid="true"],
+.careers-application-form textarea[aria-invalid="true"] {
+    border-color: var(--red);
+}
+
+.contact-form .contact-field input[aria-invalid="false"],
+.contact-form .contact-field select[aria-invalid="false"],
+.contact-form .contact-field textarea[aria-invalid="false"],
+.careers-application-form input[aria-invalid="false"],
+.careers-application-form select[aria-invalid="false"],
+.careers-application-form textarea[aria-invalid="false"] {
+    border-color: #cce6d5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-transition-ready {
+        transition: none;
+    }
+}

@@ -411,6 +411,51 @@
         });
 
         document.querySelectorAll('.contact-form, .careers-application-form').forEach((form) => {
+            const validationFields = [...form.querySelectorAll('input:not([type="hidden"]):not([name="fax_number_secondary"]), select, textarea')];
+
+            const updateFieldValidity = (field) => {
+                field.setCustomValidity('');
+
+                const uploadedFile = field.type === 'file' ? field.files?.[0] : null;
+                if (uploadedFile && !/\.(pdf|doc|docx)$/i.test(uploadedFile.name)) {
+                    field.setCustomValidity('Choose a PDF, DOC or DOCX file.');
+                } else if (uploadedFile && uploadedFile.size > 5 * 1024 * 1024) {
+                    field.setCustomValidity('Choose a file that is 5 MB or smaller.');
+                }
+
+                if (field.validity.valid) {
+                    if (field.dataset.validationTouched === 'true' && (field.value || field.type === 'file' && field.files?.length)) {
+                        field.setAttribute('aria-invalid', 'false');
+                    } else {
+                        field.removeAttribute('aria-invalid');
+                    }
+                } else {
+                    field.setAttribute('aria-invalid', 'true');
+                }
+            };
+
+            validationFields.forEach((field) => {
+                field.addEventListener('invalid', () => {
+                    if (field.validity.valueMissing) {
+                        field.setCustomValidity('Please complete this required field.');
+                    } else if (field.validity.typeMismatch && field.type === 'email') {
+                        field.setCustomValidity('Enter a valid email address.');
+                    } else if (!field.validity.customError) {
+                        field.setCustomValidity('Please check this field and try again.');
+                    }
+
+                    field.setAttribute('aria-invalid', 'true');
+                });
+
+                field.addEventListener('blur', () => {
+                    field.dataset.validationTouched = 'true';
+                    updateFieldValidity(field);
+                });
+
+                field.addEventListener('input', () => updateFieldValidity(field));
+                field.addEventListener('change', () => updateFieldValidity(field));
+            });
+
             form.addEventListener('submit', async (event) => {
                 event.preventDefault();
 
@@ -473,5 +518,115 @@
 
         document.body.classList.add('js-reveal');
         document.querySelectorAll('[data-reveal]').forEach((element) => revealObserver.observe(element));
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        const navigationClass = 'page-transition-out';
+        let navigationTimer = 0;
+        let recoveryTimer = 0;
+
+        document.body.classList.add('page-transition-ready');
+
+        const clearPageTransition = () => {
+            window.clearTimeout(navigationTimer);
+            window.clearTimeout(recoveryTimer);
+            document.body.classList.remove(navigationClass);
+        };
+
+        window.addEventListener('pageshow', clearPageTransition);
+        window.addEventListener('pagehide', () => window.clearTimeout(recoveryTimer), { once: true });
+
+        document.addEventListener('click', (event) => {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+                return;
+            }
+
+            if (!(event.target instanceof Element)) {
+                return;
+            }
+
+            const link = event.target.closest('a[href]');
+            if (!link || link.hasAttribute('download') || link.relList.contains('external') || link.target && link.target !== '_self') {
+                return;
+            }
+
+            const destination = new URL(link.href, window.location.href);
+            if (destination.origin !== window.location.origin ||
+                destination.pathname === window.location.pathname && destination.search === window.location.search) {
+                return;
+            }
+
+            event.preventDefault();
+            window.clearTimeout(navigationTimer);
+            window.clearTimeout(recoveryTimer);
+            document.body.classList.add(navigationClass);
+            navigationTimer = window.setTimeout(() => {
+                window.location.assign(destination.href);
+            }, 140);
+            recoveryTimer = window.setTimeout(clearPageTransition, 1200);
+        });
+    }
+
+    if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const pointerTargetSelector = 'a.button, button.button, .service-card, .accounting-service-card, .expertise-core-card, .expertise-industry-card, .market-card';
+        let activePointerTarget = null;
+        let pointerFrame = 0;
+        let pointerCoordinates = { x: 0, y: 0 };
+
+        const clearPointerTarget = (target) => {
+            target.classList.remove('micro-pointer-active');
+            target.style.removeProperty('--micro-offset-x');
+            target.style.removeProperty('--micro-offset-y');
+        };
+
+        document.addEventListener('pointermove', (event) => {
+            if (!(event.target instanceof Element)) {
+                return;
+            }
+
+            const target = event.target.closest(pointerTargetSelector);
+            if (activePointerTarget && activePointerTarget !== target) {
+                clearPointerTarget(activePointerTarget);
+                activePointerTarget = null;
+            }
+
+            if (!target) {
+                return;
+            }
+
+            activePointerTarget = target;
+            pointerCoordinates = { x: event.clientX, y: event.clientY };
+
+            if (pointerFrame) {
+                return;
+            }
+
+            pointerFrame = window.requestAnimationFrame(() => {
+                pointerFrame = 0;
+                if (!activePointerTarget) {
+                    return;
+                }
+
+                const bounds = activePointerTarget.getBoundingClientRect();
+                const maxOffset = activePointerTarget.matches('a.button, button.button') ? 1.5 : 1;
+                const offsetX = ((pointerCoordinates.x - bounds.left) / bounds.width - 0.5) * 2 * maxOffset;
+                const offsetY = ((pointerCoordinates.y - bounds.top) / bounds.height - 0.5) * 2 * maxOffset;
+                activePointerTarget.classList.add('micro-pointer-active');
+                activePointerTarget.style.setProperty('--micro-offset-x', `${offsetX.toFixed(2)}px`);
+                activePointerTarget.style.setProperty('--micro-offset-y', `${offsetY.toFixed(2)}px`);
+            });
+        });
+
+        const resetPointerTarget = () => {
+            if (activePointerTarget) {
+                clearPointerTarget(activePointerTarget);
+                activePointerTarget = null;
+            }
+        };
+
+        document.addEventListener('pointerleave', resetPointerTarget);
+        window.addEventListener('blur', resetPointerTarget);
     }
 })();

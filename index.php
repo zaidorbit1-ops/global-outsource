@@ -46,7 +46,7 @@ $heroArtwork = 'assets/hero/hero.png';
 require __DIR__ . '/includes/header.php';
 ?>
 
-<main id="main-content">
+<main id="main-content" class="home-page">
     <section class="hero section-shell" id="home" aria-labelledby="hero-title">
         <div class="hero-copy" data-reveal="left">
             <p class="eyebrow"><span class="eyebrow-line"></span>People <span aria-hidden="true">|</span> Technology <span aria-hidden="true">|</span> Global Opportunities</p>
